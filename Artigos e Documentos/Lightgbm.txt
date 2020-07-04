@@ -1,0 +1,32 @@
+Motivation for gradient boosting on decision Trees?
+
+Single decision tree can easily overfit the data
+It's better to build ensemble models
+
+
+LightGBM: 
+Main Idea: Make the training faster
+LighGBM chooses the leaf with maximum delta loss to grow and does have to grow 
+the whole level
+
+OBS: Use Bayesian optimization for parameter tuning(scikit-optimize or hyperot)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
