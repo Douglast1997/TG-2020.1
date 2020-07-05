@@ -1,11 +1,33 @@
 Separar dados outdoor de dados indoor OK 26/05
 Depois separar os dados outdoor em 90% de treinamento e 10% de teste Ok 26/05
-Estudar CrossValidation
 Estudar LightGBM  ok
 Implementar LightGBM ok 
 Informar os resultados para Daniel ok
+Escrever a proposta no overleaf ok
+
+Estudar o LightGBM com mais detalhes para poucas features e poucos dados
+Estudar CrossValidation
 Começar a escrever o TCC
-Escrever a proposta no overleaf
+Ver como funciona o Grid Search
+Estudar SVR
+Implementar SVR
+Gerar no grid as dist_1, dist_2, dist_3, delay_1, delay_2, delay_3, delay_1_2, delay_1_3,delay_2_3 sobre o mapa.
+
+1º Gerar o Grid do Fingerprinting com lat e lon, dist_1, dist_2, dist_3, delay_1, delay_2, delay_3, delay_1_2, delay_1_3,delay_2_3 sobre o mapa.
+2º Treina o LightGBM com o X_train e y_train
+3º Usa o X_test para o LightGBM predizer o y_test que vai retornar o y_pred.
+Predizer os RSSIs (Já faço isso e tenho uma acurácia boa)
+
+4ª Gerar o mapa de cobertura e com o LightGBM predizer os RSSIs
+
+5ª Pega o arquivo de teste somente os RSSIs e os delays e ver com os RSSIs e os delays do mapa de cobertura. O ponto analisado que apresentar a menor distancia euclidiana é salvo a lat e lon do mapa de 
+cobertura e o ID do arquivo de teste. Para depois comparar os resultados com a posição real do arquivo de teste
+
+
+
+In this work, we propose an ML approach using SVR to
+predict path loss in an urban outdoor environment. From
+these predictions, coverage maps are used to locate the position of a mobile terminal.
 
 
 radio signal strength (RSS)-
@@ -13,19 +35,3 @@ based approaches are cost-effective alternatives when
 compared to localization techniques based on global positioning systems.
 
 
-1º Gerar o Grid do Fingerprinting sobre o mapa.
-2º Treina o LightGBM com o X_train e y_train
-3º Usa o X_test para o LightGBM predizer o y_test que vai retornar o y_pred.
-lat_pred e lon_pred (Já faço isso e tenho uma acurácia boa)
-
-4º Com o y_pred vamos pegar cada ponto (lat, lon) e ver qual é o ponto mais próximo
-no grid do fingerprinting, então vamos pegar e ponto do grid do fingerprinting e salva esse
-ponto no ID. Em seguinda vamos usar o y_pred_fingerprinting e comprarar com o y_test
-
-
-In this work, we propose an ML approach using SVR to
-predict path loss in an urban outdoor environment. From
-these predictions, coverage maps are used to locate the position of a mobile terminal. S
-
-
-Grid Search
