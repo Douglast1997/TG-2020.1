@@ -1,17 +1,18 @@
 Separar dados outdoor de dados indoor OK 26/05
-Depois separar os dados outdoor em 90% de treinamento e 10% de teste Ok 26/05
+Depois separar os dados outdoor em 80% de treinamento e 20% de teste Ok 26/05
 Estudar LightGBM  ok
 Implementar LightGBM ok 
 Informar os resultados para Daniel ok
-Escrever a proposta no overleaf ok
+Escrever a proposta no overleaf ok 26/06
+Gerar no grid as dist_1, dist_2, dist_3, delay_1, delay_2, delay_3, delay_1_2, delay_1_3,delay_2_3 sobre o mapa. ok 07/07
+Implementar SVR ok 09/07
 
+
+Ver como funciona o Grid Search para o LightGBM e SVR
+Estudar k-Fold Cross-Validation
 Estudar o LightGBM com mais detalhes para poucas features e poucos dados
-Estudar CrossValidation
-Começar a escrever o TCC
-Ver como funciona o Grid Search
 Estudar SVR
-Implementar SVR
-Gerar no grid as dist_1, dist_2, dist_3, delay_1, delay_2, delay_3, delay_1_2, delay_1_3,delay_2_3 sobre o mapa.
+Começar a escrever o TCC
 
 1º Gerar o Grid do Fingerprinting com lat e lon, dist_1, dist_2, dist_3, delay_1, delay_2, delay_3, delay_1_2, delay_1_3,delay_2_3 sobre o mapa.
 2º Treina o LightGBM com o X_train e y_train
