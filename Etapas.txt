@@ -6,11 +6,13 @@ Informar os resultados para Daniel ok
 Escrever a proposta no overleaf ok 26/06
 Gerar no grid as dist_1, dist_2, dist_3, delay_1, delay_2, delay_3, delay_1_2, delay_1_3,delay_2_3 sobre o mapa. ok 07/07
 Implementar SVR ok 09/07
+Estudar o LightGBM com mais detalhes para poucas features e poucos dados ok
+Ver como funciona o Grid Search para o LightGBM e SVR ok
+ver se os delays e angulos do arquivo de treinamento e teste estão correto: ok
+adicionar as medições no arquivo cdb 20 lightgbm omplete ok
 
 
-Ver como funciona o Grid Search para o LightGBM e SVR
 Estudar k-Fold Cross-Validation
-Estudar o LightGBM com mais detalhes para poucas features e poucos dados
 Estudar SVR
 Começar a escrever o TCC
 
