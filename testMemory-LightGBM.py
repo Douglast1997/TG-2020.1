@@ -3,8 +3,8 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 import seaborn as sns
-
 import lightgbm as lgb
+from memory_profiler import profile
 
 def y_RSSIs(file):
     y = pd.read_csv(file)
@@ -20,7 +20,7 @@ def y_RSSIs(file):
     
     return y_rssi_1_1, y_rssi_1_2, y_rssi_1_3, y_rssi_2_1, y_rssi_2_2, y_rssi_2_3, y_rssi_3_1, y_rssi_3_2, y_rssi_3_3
 
-
+@profile
 def LightGBM_TCC(X_train, y_train, X_test):
 
     # Feature Scaling
@@ -33,26 +33,7 @@ def LightGBM_TCC(X_train, y_train, X_test):
     params = {}
     params['learning_rate'] = 0.005 #0.003
     params['boosting_type'] = 'goss'
-    params['metric'] = 'mse'
-    
-    #Paramentros atuais do projeto do dia 01/10/20
-    #params['metric'] = 'rmse'
-    #params['max_depth'] = 8
-    #params['num_leaves']= 90
-    #params['feature_fraction'] = 0.7
-    #params['max_bin'] = 5
-    #params['min_data_in_leaf'] = 61
-    #params['lambda_l1'] = 8
-    #params['lambda_l2'] = 10
-    #params['min_split_gain'] = 10
-    #params['top_rate'] = 0.90
-    #params['min_child_weight'] = 42
-    #params['other_rate'] = 0.07    
-    
-    
-    #Paramentros atuais do projeto antes dia 01/10/20
-    
-
+    params['metric'] = 'mse' 
     params['max_depth'] = 7 #ok
     params['num_leaves'] = 32 #ok
     params['min_data_in_leaf'] = 21 #ok
@@ -64,21 +45,6 @@ def LightGBM_TCC(X_train, y_train, X_test):
     params['nthreads'] = 2 #ok
     params['top_rate'] = 0.90 #ok
     params['other_rate'] = 0.07 # ok
-     
-    # Estou usando este 03/10
-    #params['max_depth'] = 6 #8
-    #params['num_leaves']= 50 #90
-    #params['metric'] = 'mse'
-    #params['top_rate'] = 0.90, #0.9064148448434349,
-    #params['min_child_weight'] = 42 #41.9612869171337,
-    #params['other_rate'] = 0.07 # 0.0721768246018207,
-    #params['feature_fraction'] = 0.70 #0.56, #0.5665320670155495,
-    #params['min_split_gain'] = 10 #9.820197773625843,
-    #params['lambda_l1'] = 9.5 #9.677537745007898,
-    #params['lambda_l2'] = 8 #8.2532317400459,
-    #params['min_data_in_leaf'] = 21
-    #params['nthreads'] = 2
-    
     
     clf = lgb.train(
         params,
@@ -91,6 +57,7 @@ def LightGBM_TCC(X_train, y_train, X_test):
 
     return y_pred
 
+#@profile
 def y_pred_write_File(X_train, y_train_rssi_1_1, y_train_rssi_1_2, y_train_rssi_1_3, y_train_rssi_2_1, y_train_rssi_2_2, y_train_rssi_2_3, y_train_rssi_3_1, y_train_rssi_3_2, y_train_rssi_3_3, X_test, Metodo_Num):
     #y_train_lat, y_train_lon#
      
