@@ -25,7 +25,7 @@ def SVR_TCC(X_train, y_train, X_test):
 
     X = X_train
     y = y_train
-    regr = svm.SVR(C=64, cache_size=200, coef0=0.1, degree=3, epsilon=0.5, gamma=8, kernel='rbf', max_iter=-1, shrinking=True, tol=0.001, verbose=False)
+    regr = svm.SVR(C=64, cache_size=200, coef0=0.1, degree=3, epsilon=0.1, gamma=0.6, kernel='rbf', max_iter=-1, shrinking=True, tol=0.001, verbose=False)
     regr.fit(X, y.values.ravel())
     y_pred = regr.predict(X_test)
     

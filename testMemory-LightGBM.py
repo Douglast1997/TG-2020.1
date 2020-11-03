@@ -33,15 +33,15 @@ def LightGBM_TCC(X_train, y_train, X_test):
     params = {}
     params['learning_rate'] = 0.005 #0.003
     params['boosting_type'] = 'goss'
-    params['metric'] = 'mse' 
+    params['metric'] = 'rmse' 
     params['max_depth'] = 7 #ok
     params['num_leaves'] = 32 #ok
-    params['min_data_in_leaf'] = 21 #ok
-    params['feature_fraction'] = 1 # ok
-    params['lambda_l1'] = 8.5 #ok
-    params['lambda_l2'] = 10 #ok
-    params['min_split_gain'] = 10 #
-    params['min_child_weight'] = 41 #52
+    params['min_data_in_leaf'] = 101 #ok
+    params['feature_fraction'] = 1.0 # ok
+    params['lambda_l1'] = 0.001 #ok
+    params['lambda_l2'] = 8 #ok
+    params['min_split_gain'] = 0.4 #
+    params['min_child_weight'] = 80 #52
     params['nthreads'] = 2 #ok
     params['top_rate'] = 0.90 #ok
     params['other_rate'] = 0.07 # ok
@@ -49,7 +49,7 @@ def LightGBM_TCC(X_train, y_train, X_test):
     clf = lgb.train(
         params,
         d_train,
-        num_boost_round=400,
+        num_boost_round=1000,
         verbose_eval=100)
     
     #Prediction
