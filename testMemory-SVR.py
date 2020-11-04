@@ -23,9 +23,16 @@ def y_RSSIs(file):
 @profile
 def SVR_TCC(X_train, y_train, X_test):
 
+    # Feature Scaling
+    #rom sklearn.preprocessing import StandardScaler
+    #sc = StandardScaler()
+    #X_train = sc.fit_transform(X_train)
+    #X_test = sc.transform(X_test)
+    
     X = X_train
     y = y_train
     regr = svm.SVR(C=64, cache_size=200, coef0=0.1, degree=3, epsilon=0.1, gamma=0.6, kernel='rbf', max_iter=-1, shrinking=True, tol=0.001, verbose=False)
+    #regr = svm.SVR(C=8, cache_size=200, coef0=0.1, degree=3, epsilon=0.1, gamma=4, kernel='rbf', max_iter=-1, shrinking=True, tol=0.001, verbose=False)
     regr.fit(X, y.values.ravel())
     y_pred = regr.predict(X_test)
     
