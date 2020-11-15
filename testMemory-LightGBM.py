@@ -35,7 +35,7 @@ def LightGBM_TCC(X_train, y_train, X_test):
     params['boosting_type'] = 'goss'
     params['metric'] = 'rmse' 
     params['max_depth'] = 7 #ok
-    params['num_leaves'] = 32 #ok
+    params['num_leaves'] = 16 #ok
     params['min_data_in_leaf'] = 101 #ok
     params['feature_fraction'] = 1.0 # ok
     params['lambda_l1'] = 0.001 #ok
@@ -50,7 +50,7 @@ def LightGBM_TCC(X_train, y_train, X_test):
         params,
         d_train,
         num_boost_round=1000,
-        verbose_eval=100)
+        verbose_eval=-1)
     
     #Prediction
     y_pred=clf.predict(X_test)
